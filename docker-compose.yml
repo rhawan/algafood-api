@@ -1,0 +1,20 @@
+version: '3.5'
+services:
+  database:
+    image: mysql:8.0.25
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_DATABASE: algafood
+    volumes:
+      - db-volume:/var/lib/mysql
+    networks:
+      - mysql-compose-network
+
+volumes:
+  db-volume:
+
+networks:
+  mysql-compose-network:
+    driver: bridge
