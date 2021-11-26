@@ -1,8 +1,13 @@
 package com.algaworks.algafood.api.controller;
 
-import javax.validation.Valid;
-
+import com.algaworks.algafood.api.assembler.FotoProdutoModelAssembler;
+import com.algaworks.algafood.api.model.FotoProdutoModel;
+import com.algaworks.algafood.api.model.input.FotoProdutoInput;
 import com.algaworks.algafood.domain.exception.EntidadeNaoEncontradaException;
+import com.algaworks.algafood.domain.model.FotoProduto;
+import com.algaworks.algafood.domain.model.Produto;
+import com.algaworks.algafood.domain.service.CadastroProdutoService;
+import com.algaworks.algafood.domain.service.CatalogoFotoProdutoService;
 import com.algaworks.algafood.domain.service.FotoStorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -14,16 +19,8 @@ import org.springframework.web.HttpMediaTypeNotAcceptableException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.algaworks.algafood.api.assembler.FotoProdutoModelAssembler;
-import com.algaworks.algafood.api.model.FotoProdutoModel;
-import com.algaworks.algafood.api.model.input.FotoProdutoInput;
-import com.algaworks.algafood.domain.model.FotoProduto;
-import com.algaworks.algafood.domain.model.Produto;
-import com.algaworks.algafood.domain.service.CadastroProdutoService;
-import com.algaworks.algafood.domain.service.CatalogoFotoProdutoService;
-
+import javax.validation.Valid;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 @RestController
